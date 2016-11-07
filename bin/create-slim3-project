@@ -19,7 +19,7 @@ vagrantPhpBranch=14.04
 vagrantPhpRepository=https://github.com/vagrant-php/ubuntu.git
 vagrantProvider=virtualbox
 vagrantSharetype=nfs
-version=0.9.0
+version=0.1.0
 
 # get all parameters
 for i in "$@"
