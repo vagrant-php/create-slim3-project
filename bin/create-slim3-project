@@ -163,37 +163,8 @@ if [[ $vagrantIp ]]; then
     printf "    ip: $vagrantIp\n" >> vagrant.yml
 fi
 
-# create a temp directory
-tempDir=$DIR/../tmp/project-$name
-if [ -d "$tempDir" ]; then
-    rm -rf $tempDir
-fi
-
-mkdir $tempDir
-
-# copy files for this major version
-majorVersionFilePath=$DIR/../files/$majorVersion
-if [ -d "$majorVersionFilePath" ]; then
-    cp -rf $majorVersionFilePath/* $tempDir/
-fi
-
-# copy files for this minor version
-minorVersionFilePath=$DIR/../files/$minorVersion
-if [ -d "$minorVersionFilePath" ]; then
-    cp -rf $minorVersionFilePath/* $tempDir/
-fi
-
-# copy files for this version
-versionFilePath=$DIR/../files/$version
-if [ -d "$versionFilePath" ]; then
-    cp -rf $versionFilePath/* $tempDir/
-fi
-
 # replace variables within configs
-sed -i "" -e "s/slim_skeleton/$safename/g" $tempDir/config/config.php
-
-# copy the prepared config to the project
-cp -rf $tempDir/* .
+sed -i "" -e "s/slim_skeleton/$safename/g" ./config/config.php
 
 cd vagrant-php
 
