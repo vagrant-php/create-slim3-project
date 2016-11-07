@@ -190,8 +190,7 @@ if [ -d "$versionFilePath" ]; then
 fi
 
 # replace variables within configs
-sed -i "" -e "s/%%%%locale%%%%/$locale/g" $tempDir/config/config.php
-sed -i "" -e "s/%%%%safename%%%%/$safename/g" $tempDir/config/config.php
+sed -i "" -e "s/slim_skeleton/$safename/g" $tempDir/config/config.php
 
 # copy the prepared config to the project
 cp -rf $tempDir/* .
